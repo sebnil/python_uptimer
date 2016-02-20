@@ -1,12 +1,12 @@
-from distutils.core import setup
+from setuptools import setup
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
+print(requirements)
 
 setup(
     name='python_uptimer',
-    version='1.0',
-    packages=['python_uptimer'],
+    version='1.1',
     url='',
     license='',
     author='Sebastian Nilsson',
