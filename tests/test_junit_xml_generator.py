@@ -7,7 +7,8 @@ import unittest
 from python_uptimer import up_check
 from python_uptimer import monitor_runner
 from python_uptimer.defines import status_path
-import shelve
+from python_uptimer.junit_xml_generator import generate_junit_xml
+import python_uptimer
 
 resources = {
     'sebastiannilsson.com': {
@@ -22,31 +23,10 @@ resources = {
     }
 }
 
-
 class MyTestCase(unittest.TestCase):
 
 
 
-    def test_input(self):
+    def test_xml_generation(self):
         monitor_runner.start(resources, run_once=True)
-        d = shelve.open(status_path)
-        self.assertTrue(d['result']['sebastiannilsson.com']['web']['success'])
-        self.assertTrue(d['result']['python']['docs']['success'])
-        self.assertTrue(d['result']['python']['web']['success'])
-        self.assertFalse(d['result']['faultcase']['hi404']['success'])
-
-
-    def test_output(self):
-        self.test_input()
-        o = monitor_runner.get_latest_status()
-        self.assertGreater(len(o), 0)
-
-
-    def test_shelve(self):
-        shelf = shelve.open("myshelf.db", writeback=True)
-        shelf['thedict'] = {'one': 1, 'two': 2, 'three': 3}
-        shelf.sync()
-        shelf.close()
-
-if __name__ == '__main__':
-    unittest.main()
+        generate_junit_xml('junit.xml')
