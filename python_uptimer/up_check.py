@@ -30,6 +30,7 @@ class Response():
 
             print('getting {} took {}'.format(self.url, response.elapsed))
             r = {
+                'name': self.url,
                 'time': unixtime,
                 'success': True,
                 'response_time': response.elapsed,
@@ -37,6 +38,7 @@ class Response():
         except:
             print('getting {} failed'.format(self.url))
             r = {
+                'name': self.url,
                 'time': unixtime,
                 'success': False,
                 'response_time': None,

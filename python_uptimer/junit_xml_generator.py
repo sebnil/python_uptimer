@@ -17,13 +17,16 @@ def generate_junit_xml(file_name='junit.xml'):
     for testsuite_name in results:
         test_cases = []
         for test_case_name in results[testsuite_name]:
+            name = results[testsuite_name][test_case_name]['name']
             success = results[testsuite_name][test_case_name]['success']
+
             try:
                 elapsed_sec=results[testsuite_name][test_case_name]['response_time'].total_seconds()
             except:
                 elapsed_sec=-1
             tc = TestCase(
-                name=test_case_name, classname='.',
+                name=name,
+                classname='{}.{}'.format(testsuite_name, test_case_name),
                 elapsed_sec=elapsed_sec,
                 stdout='{}'.format(success),
             )
