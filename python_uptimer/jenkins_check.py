@@ -18,6 +18,7 @@ class JenkinsNodeAlive():
         try:
             J = Jenkins(self.jenkins_url, username=self.username, password=self.password)
             test_slave = J.get_node(self.node_name)
+            r['name'] = self.node_name
             r['success'] = test_slave.is_online()
         except:
             print('Something went wrong checking {}'.format(self.jenkins_url))

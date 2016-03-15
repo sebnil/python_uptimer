@@ -17,7 +17,11 @@ def generate_junit_xml(file_name='junit.xml'):
     for testsuite_name in results:
         test_cases = []
         for test_case_name in results[testsuite_name]:
-            name = results[testsuite_name][test_case_name]['name']
+            try:
+                name = results[testsuite_name][test_case_name]['name']
+            except:
+                name = '.'
+
             success = results[testsuite_name][test_case_name]['success']
 
             try:

@@ -6,7 +6,7 @@ print(requirements)
 
 setup(
     name='python_uptimer',
-    version='1.2',
+    version='1.3',
     url='',
     license='',
     author='Sebastian Nilsson',
