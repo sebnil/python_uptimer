@@ -6,6 +6,7 @@ from builtins import (bytes, str, open, super, range,
 import unittest
 from python_uptimer import up_check
 import requests
+from datetime import timedelta
 
 class MyTestCase(unittest.TestCase):
 
@@ -25,7 +26,7 @@ class MyTestCase(unittest.TestCase):
     def test_requests(self):
         response = requests.get('http://www.google.com', timeout=2)
         self.assertGreater(len(response.content), 0)
-        self.assertGreater(float(response.elapsed), -1)
+        self.assertGreater(response.elapsed, timedelta(-1))
 
 
 if __name__ == '__main__':
