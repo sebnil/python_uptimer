@@ -3,3 +3,6 @@ requests
 yattag
 jenkinsapi
 junit-xml
+
+nose
+coverage
