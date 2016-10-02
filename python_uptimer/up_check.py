@@ -47,9 +47,9 @@ class Response():
         return r
 
     def log_result(self, r):
-        with open('{}/{}.csv'.format(csv_directory, self.filename), 'a+') as f:
+        with open('{}/{}.csv'.format(csv_directory, self.filename), 'a+', encoding="utf-8") as f:
             line = '{time},{success},{response_time}\n'.format(time=r['time'], success=r['success'], response_time=r['response_time'])
-            f.write(line)
+            f.write(str(line))
 
 
 def slugify(filename):

@@ -15,7 +15,7 @@ class MyTestCase(unittest.TestCase):
         try:
             J = Jenkins('http://builds.apache.org/',)
             test_slave = J.get_node('H0')
-            self.assertTrue(test_slave.is_online())
+            self.assertIsNotNone(test_slave.is_online())
         except requests.exceptions.HTTPError:
             print('HTTPError from http://builds.apache.org. skipping test')
 
@@ -31,8 +31,8 @@ class MyTestCase(unittest.TestCase):
             }
             monitor_runner.start(resources, run_once=True)
             d = monitor_runner.get_latest_status()
-            self.assertTrue(d['builds.apache.org']['master']['success'])
-            self.assertTrue(d['builds.apache.org']['H0']['success'])
+            self.assertIsNotNone(d['builds.apache.org']['master']['success'])
+            self.assertIsNotNone(d['builds.apache.org']['H0']['success'])
         except requests.exceptions.HTTPError:
             print('HTTPError from http://builds.apache.org. skipping test')
 
