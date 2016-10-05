@@ -8,12 +8,10 @@ node {
 	}
 
 	stage('Test') {
-		#bat 'nosetests -w tests --with-coverage --cover-package=python_uptimer'
 		bat 'nosetests -w tests'
     }
 
 	stage('Archive') {
-		# archive '.coverage'
 		archive 'nosetests.xml'
 	}
 
