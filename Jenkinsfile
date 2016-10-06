@@ -8,7 +8,7 @@ node {
 	}
 
 	stage('Test') {
-		bat 'nosetests -w tests'
+		bat 'nosetests -w tests --with-xunit --with-coverage --cover-package=python_uptimer --verbosity=2'
     }
 
 	stage('Archive') {
