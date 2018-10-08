@@ -60,3 +60,15 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+/.idea/
+/python_uptimer/csv/
+*.db.bak
+*.bak
+*.dat
+*.db
+/python_uptimer/status.dir
+/tests/index.html
+/tests/junit.xml
+/tests/myshelf.db.dir
+*.db.dir
