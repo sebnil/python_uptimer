@@ -72,3 +72,4 @@ target/
 /tests/junit.xml
 /tests/myshelf.db.dir
 *.db.dir
+/.pytest_cache/**

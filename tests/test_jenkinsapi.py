@@ -13,13 +13,11 @@ import requests
 class MyTestCase(unittest.TestCase):
     def test_slave_alive(self):
         try:
-            J = Jenkins('http://builds.apache.org/',)
+            J = Jenkins('http://builds.apache.org/', )
             test_slave = J.get_node('H0')
             self.assertIsNotNone(test_slave.is_online())
         except:
             print('HTTPError from http://builds.apache.org. skipping test')
-
-
 
     def test_jenkins_check(self):
         try:
@@ -35,6 +33,7 @@ class MyTestCase(unittest.TestCase):
             self.assertIsNotNone(d['builds.apache.org']['H0']['success'])
         except:
             print('HTTPError from http://builds.apache.org. skipping test')
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -7,6 +7,7 @@ import unittest
 import schedule
 import time
 
+
 class MyTestCase(unittest.TestCase):
     def test_schedule(self):
         def job():
@@ -15,9 +16,8 @@ class MyTestCase(unittest.TestCase):
         schedule.every(2).seconds.do(job)
         while True:
             schedule.run_pending()
-            #time.sleep(1)
+            # time.sleep(1)
             break
-
 
 
 if __name__ == '__main__':

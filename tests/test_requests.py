@@ -8,9 +8,8 @@ from python_uptimer import up_check
 import requests
 from datetime import timedelta
 
+
 class MyTestCase(unittest.TestCase):
-
-
 
     def test_response_time(self):
         jobs = [
@@ -21,7 +20,6 @@ class MyTestCase(unittest.TestCase):
         for job in jobs:
             r = job.check()
             print(r)
-
 
     def test_requests(self):
         response = requests.get('http://www.google.com', timeout=2)

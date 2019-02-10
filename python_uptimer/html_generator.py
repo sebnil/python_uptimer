@@ -6,10 +6,10 @@ from builtins import (bytes, str, open, super, range,
 from yattag import Doc
 from python_uptimer import monitor_runner
 
+
 def generate_html(file_name='result.html'):
     results = monitor_runner.get_latest_status()
     print(results)
-
 
     doc, tag, text = Doc().tagtext()
 
@@ -43,6 +43,7 @@ def generate_html(file_name='result.html'):
     print(html)
     with open(file_name, "w", encoding='utf-8-sig') as f:
         f.write(html)
+
 
 if __name__ == '__main__':
     generate_html()

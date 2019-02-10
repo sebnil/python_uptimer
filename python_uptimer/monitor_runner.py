@@ -8,6 +8,7 @@ import time
 
 from python_uptimer.defines import status_path
 
+
 def start(resources, run_once=True):
     while True:
         d = shelve.open(status_path, writeback=True)
@@ -29,5 +30,5 @@ def start(resources, run_once=True):
 
 
 def get_latest_status():
-        d = shelve.open(status_path)
-        return d['result']
+    d = shelve.open(status_path)
+    return d['result']

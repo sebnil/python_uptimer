@@ -6,10 +6,10 @@ from builtins import (bytes, str, open, super, range,
 import os
 import errno
 
-
 # path to this script
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
+
 
 def make_sure_path_exists(path):
     try:
@@ -17,6 +17,7 @@ def make_sure_path_exists(path):
     except OSError as exception:
         if exception.errno != errno.EEXIST:
             raise
+
 
 csv_directory = dname + '/csv/'
 make_sure_path_exists(csv_directory)

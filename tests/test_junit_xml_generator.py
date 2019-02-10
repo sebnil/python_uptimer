@@ -23,9 +23,8 @@ resources = {
     }
 }
 
+
 class MyTestCase(unittest.TestCase):
-
-
 
     def test_xml_generation(self):
         monitor_runner.start(resources, run_once=True)

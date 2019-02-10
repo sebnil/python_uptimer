@@ -6,3 +6,4 @@ junit-xml
 
 nose
 coverage
+flake8
